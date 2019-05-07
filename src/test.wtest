@@ -1,0 +1,29 @@
+import vehiculos.*
+test "corsa" {
+	var corsa = new Rodado()
+	corsa.color("rojo")
+	corsa.capacidad(4)
+	corsa.peso(1300)
+	corsa.velocidadMaxima(150)
+	
+	assert.equals(150, corsa.velocidadMaxima())
+	assert.equals(4, corsa.capacidad())
+	assert.equals("rojo", corsa.color())
+	assert.equals(1300, corsa.peso())
+}
+
+test "Kwid" {
+	var kwid = new Rodado()
+	kwid .peso(1500)
+	kwid.tanqueAdicional(true)
+	kwid.capacidad(4)
+	kwid.tieneGas(true)
+	kwid.velocidadMaxima(120)
+	kwid.color("azul")
+	
+	
+	assert.equals("azul", kwid.color())
+	assert.equals(1650, kwid.peso())
+	assert.equals(3, kwid.capacidad())
+	assert.equals(110, kwid.velocidadMaxima())
+}
