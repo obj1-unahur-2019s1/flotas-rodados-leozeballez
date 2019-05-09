@@ -14,16 +14,36 @@ test "corsa" {
 
 test "Kwid" {
 	var kwid = new Rodado()
-	kwid .peso(1500)
-	kwid.tanqueAdicional(true)
+	kwid.peso(1500)
 	kwid.capacidad(4)
-	kwid.tieneGas(true)
 	kwid.velocidadMaxima(120)
+	kwid.tanqueAdicional(true)
+	kwid.tieneGas(true)
 	kwid.color("azul")
-	
 	
 	assert.equals("azul", kwid.color())
 	assert.equals(1650, kwid.peso())
 	assert.equals(3, kwid.capacidad())
 	assert.equals(110, kwid.velocidadMaxima())
+}
+
+test "trafic" {
+	var comodo = new Interior()
+	comodo.capacidad(5)
+	comodo.peso(700)
+	var pulenta = new Motor()
+	pulenta.peso(800)
+	pulenta.velocidadMaxima(130)
+	
+	trafic.interior(comodo)
+	trafic.motor(pulenta)
+	
+	assert.equals(comodo, trafic.interior())
+	assert.equals(pulenta, trafic.motor())
+	assert.equals(5, trafic.capacidad())
+	assert.equals(700, trafic.interior().peso())
+	assert.equals(800, trafic.motor().peso())
+	assert.equals(130, trafic.velocidadMaxima())
+	
+	assert.equals(5500, trafic.peso())
 }

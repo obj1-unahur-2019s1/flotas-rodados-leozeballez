@@ -1,0 +1,93 @@
+import vehiculos.*
+import dependencias.*
+
+describe "cachito y vehiculos"{
+	const cachito = new Rodado()
+	const corsaAzul = new Rodado()
+	const corsaVerde = new Rodado()
+	const kwid = new Rodado()
+	const kwidSinAdicional = new Rodado()
+	const autoEspecial = new Rodado()
+	
+	const popular = new Interior()
+	const bataton = new Motor()
+	
+	fixture {
+		cachito.capacidad(4)
+		cachito.peso(1300)
+		cachito.velocidadMaxima(150)
+		cachito.color("rojo")
+
+		corsaAzul.capacidad(4)
+		corsaAzul.peso(1300)
+		corsaAzul.velocidadMaxima(150)
+		corsaAzul.color("azul")
+
+		corsaVerde.capacidad(4)
+		corsaVerde.peso(1300)
+		corsaVerde.velocidadMaxima(150)
+		corsaVerde.color("verde")
+	
+		kwid.peso(1500)
+		kwid.capacidad(4)
+		kwid.velocidadMaxima(120)
+		kwid.tanqueAdicional(true)
+		kwid.tieneGas(true)
+		kwid.color("azul")
+		
+		kwidSinAdicional.peso(1500)
+		kwidSinAdicional.capacidad(4)
+		kwidSinAdicional.velocidadMaxima(120)
+		kwidSinAdicional.tanqueAdicional(false)
+		kwidSinAdicional.tieneGas(true)
+		kwidSinAdicional.color("azul")
+	
+		autoEspecial.capacidad(5)
+		autoEspecial.velocidadMaxima(160)
+		autoEspecial.peso(1200)
+		autoEspecial.color("beige")
+		
+		popular.capacidad(12)
+		popular.peso(1000)
+		
+		bataton.peso(500)
+		bataton.velocidadMaxima(80)
+		
+		trafic.interior(popular)
+		trafic.motor(bataton)
+	}
+
+	test "dependencia deportes" {
+		var deportes = new Dependencia()
+		deportes.empleados(45)
+		deportes.agregarAFlota(cachito)
+		deportes.agregarAFlota(corsaAzul)
+		deportes.agregarAFlota(corsaVerde)
+		deportes.agregarAFlota(kwid)
+		deportes.agregarAFlota(autoEspecial)
+		
+		assert.equals(6750, deportes.pesoTotalFlota())
+		assert.equals(true, deportes.estaBienEquipada())
+		//assert.equals(2, deportes.capacidadTotalEnColor("azul"))
+		assert.equals("beige", deportes.colorDelRodadoMasRapido())
+		assert.equals(true, deportes.esGrande())
+		assert.equals(25, deportes.capacidadFaltante())
+	}
+
+	test "dependencia cultura" {
+		var cultura = new Dependencia()
+		cultura.empleados(31)
+		cultura.agregarAFlota(cachito)
+		cultura.agregarAFlota(kwid)
+		cultura.agregarAFlota(kwid)
+		cultura.agregarAFlota(kwidSinAdicional)
+		cultura.agregarAFlota(trafic)
+		
+		assert.equals(11600, cultura.pesoTotalFlota())
+		assert.equals(false, cultura.estaBienEquipada())
+		//assert.equals(3, cultura.capacidadTotalEnColor("azul"))
+		assert.equals("rojo", cultura.colorDelRodadoMasRapido())
+		assert.equals(false, cultura.esGrande())
+		assert.equals(5, cultura.capacidadFaltante())
+	}
+}
