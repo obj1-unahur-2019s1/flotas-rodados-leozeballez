@@ -39,41 +39,16 @@ class Rodado {
 
 object trafic {
 	var color = "blanco"
-	/*var motor = pulenta
-	var interior = comodo*/
+	const pesoBase = 4000
 	
 	var property interior
 	var property motor
 	
 	method capacidad() = return interior.capacidad()
 	method velocidadMaxima() = return motor.velocidadMaxima()
-	method peso(){ return 4000 + interior.peso() + motor.peso() }
+	method peso(){ return pesoBase + interior.peso() + motor.peso() }
+	method color() = return color
 }
-
-/*
-//interiores
-object comodo {
-	var property capacidad = 5
-	var property peso = 700
-}
-
-object popular {
-	var property capacidad = 12
-	var property peso = 1000
-}
-
-//motores
-object pulenta {
-	var property peso = 800
-	var property velocidadMaxima = 130
-}
-
-object bataton {
-	var property peso = 500
-	var property velocidadMaxima = 80
-}*/
-
-
 
 //clase de interior
 class Interior {

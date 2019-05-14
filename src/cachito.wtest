@@ -68,7 +68,7 @@ describe "cachito y vehiculos"{
 		
 		assert.equals(6750, deportes.pesoTotalFlota())
 		assert.equals(true, deportes.estaBienEquipada())
-		//assert.equals(2, deportes.capacidadTotalEnColor("azul"))
+		assert.equals(7, deportes.capacidadTotalEnColor("azul"))
 		assert.equals("beige", deportes.colorDelRodadoMasRapido())
 		assert.equals(true, deportes.esGrande())
 		assert.equals(25, deportes.capacidadFaltante())
@@ -85,7 +85,7 @@ describe "cachito y vehiculos"{
 		
 		assert.equals(11600, cultura.pesoTotalFlota())
 		assert.equals(false, cultura.estaBienEquipada())
-		//assert.equals(3, cultura.capacidadTotalEnColor("azul"))
+		assert.equals(10, cultura.capacidadTotalEnColor("azul"))
 		assert.equals("rojo", cultura.colorDelRodadoMasRapido())
 		assert.equals(false, cultura.esGrande())
 		assert.equals(5, cultura.capacidadFaltante())
